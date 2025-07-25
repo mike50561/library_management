@@ -1,0 +1,39 @@
+<odoo>
+    <!-- Vista de lista de libros -->
+    <record id="view_library_book_list" model="ir.ui.view">
+        <field name="name">library.book.list</field>
+        <field name="model">library.book</field>
+        <field name="type">list</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="title" string="Título"/>
+                <field name="author" string="Autor"/>
+                <field name="publication_date" string="Publicado"/>
+                <field name="age" string="Antigüedad (años)"/>
+            </list>
+        </field>
+    </record>
+    <!-- Vista de formulario de libros -->
+    <record id="view_library_book_form" model="ir.ui.view">
+        <field name="name">library.book.form</field>
+        <field name="model">library.book</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Libro">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="title" class="oe_edit_only"/>
+                        <h1>
+                            <field name="title" placeholder="Título del libro"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="author" placeholder="Autor"/>
+                        <field name="publication_date" placeholder="Fecha publicación"/>
+                        <field name="age" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

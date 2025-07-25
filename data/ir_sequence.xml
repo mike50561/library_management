@@ -1,0 +1,9 @@
+<odoo>
+    <record id="seq_library_member" model="ir.sequence">
+        <field name="name">Códigos de Socio</field>
+        <field name="code">library.member</field>
+        <field name="prefix">SOC</field>      
+        <field name="padding">4</field>         
+        <field name="number_increment">1</field>
+    </record>
+</odoo>

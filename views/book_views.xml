@@ -1,0 +1,78 @@
+<odoo>
+    <!-- Vista tipo lista (antes “tree”) -->
+    <record id="view_library_book_list" model="ir.ui.view">
+        <field name="name">library.book.list</field>
+        <field name="model">library.book</field>
+        <field name="type">list</field>           
+        <field name="arch" type="xml">
+            <list>
+                <field name="title"/>
+                <field name="author"/>
+                <field name="publication_date"/>
+                <field name="age"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Acción -->
+    <record id="action_library_book" model="ir.actions.act_window">
+        <field name="name">Catálogo de Libros</field>
+        <field name="res_model">library.book</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_library_book_list"/>
+        <field name="help" type="html">
+            <p>Desde aquí puedes gestionar el catálogo de libros de la biblioteca.</p>
+        </field>
+    </record>
+
+    <!-- Formulario -->
+    <record id="view_library_book_form" model="ir.ui.view">
+        <field name="name">library.book.form</field>
+        <field name="model">library.book</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Libro">
+                <header>
+                    <button name="action_create_loan"
+                     string="Prestar Libro"
+                     type="object"
+                     class="oe_highlight"
+                     context="{'default_book_id': id}"/>
+                </header>    
+                <sheet>
+                    <div class="oe_title">
+                        <label for="title" class="oe_edit_only"/>
+                        <h1><field name="title" placeholder="Título del libro"/></h1>
+                    </div>
+
+                    <group>
+                        <field name="author"/>
+                        <field name="publication_date"/>
+                        <field name="age" readonly="1"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Préstamos">
+                            <field name="loan_ids">
+                                <list editable="bottom">
+                                    <field name="member_id"/>
+                                    <field name="loan_date"/>
+                                    <field name="return_date"/>
+                                    <field name="state"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Menú -->
+    <menuitem id="menu_library_root" name="Biblioteca" sequence="10"/>
+    <menuitem id="menu_library_books"
+              name="Catálogo de Libros"
+              parent="menu_library_root"
+              action="action_library_book"
+              sequence="1"/>
+</odoo>

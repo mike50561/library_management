@@ -1,0 +1,29 @@
+<odoo>
+    <!-- Menú principal -->
+    <menuitem id="menu_library_root" name="Biblioteca" sequence="10"/>
+
+    <!-- Acción para abrir socios -->
+    <record id="action_library_member" model="ir.actions.act_window">
+        <field name="name">Gestión de Socios</field>
+        <field name="res_model">library.member</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_library_members"
+              name="Gestión de Socios"
+              parent="menu_library_root"
+              action="action_library_member"
+              sequence="2"/>
+    <!-- Catálogo de Libros -->
+    <menuitem id="menu_library_books"
+              name="Catálogo de Libros"
+              parent="menu_library_root"
+              action="action_library_book"
+              sequence="1"/>  
+
+    <!-- Préstamos -->
+    <menuitem id="menu_library_loan"
+              name="Préstamos"
+              parent="menu_library_root"
+              action="action_library_loan"
+              sequence="3"/>
+</odoo>
