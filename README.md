@@ -162,6 +162,12 @@ library_management/
     └── library_management/
 
 ```
+## 📸 Evidencia del módulo funcionando
+
+Puedes consultar el reporte completo con capturas del sistema en acción, mostrando el correcto funcionamiento de cada funcionalidad (libros, socios, préstamos, API):
+
+📎 [Reporte visual del proyecto – Google Drive](https://drive.google.com/file/d/1_UdwppDlYJMXuyRicC2ICG7ay680pRmp/view?usp=sharing)
+
 ---
 
 ## 📝 Notas
